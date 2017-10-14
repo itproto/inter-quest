@@ -75,7 +75,6 @@ function mergeLL(ll1, ll2) {
         } else {
             head = cur = target;
         }
-        console.info(target.data)
 
     }
     return head;
