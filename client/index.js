@@ -23,7 +23,7 @@ function main() {
     for (let i = 0; i < 32; i++) {
         const box = createBox($root);
         ReactDOM.render(<Box name={`Box ${i}`} />, box);
-        // box.textContent = `Box ${i + 1} ${sampleText}`;
+        //box.textContent = `Box ${i + 1} ${sampleText}`;
     }
 }
 

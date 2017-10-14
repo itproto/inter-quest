@@ -23,5 +23,6 @@ module.exports = {
       { test: /\.less$/, loader: 'style-loader!css-loader!less-loader', exclude: /node_modules/ },
     ]
   },
+  devtool: 'cheap-source-map',
   plugins: [HtmlWebpackPluginConfig, HtmlWebpackPluginConfig1]
 };
