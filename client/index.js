@@ -1,5 +1,10 @@
 import './app.less';
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import Box from './components/Box';
+
 const sampleText = `
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
 ]Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
@@ -17,7 +22,8 @@ function main() {
     const $root = document.querySelector('.boxes');
     for (let i = 0; i < 32; i++) {
         const box = createBox($root);
-        box.textContent = `Box ${i + 1} ${sampleText}`;
+        ReactDOM.render(<Box name={`Box ${i}`} />, box);
+        // box.textContent = `Box ${i + 1} ${sampleText}`;
     }
 }
 

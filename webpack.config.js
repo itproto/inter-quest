@@ -5,6 +5,11 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
+const HtmlWebpackPluginConfig1 = new HtmlWebpackPlugin({
+  template: './client/index1.html',
+  filename: 'index1.html',
+  inject: 'body'
+});
 
 module.exports = {
   entry: './client/index.js',
@@ -14,9 +19,9 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js?$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.js+?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.less$/, loader: 'style-loader!css-loader!less-loader', exclude: /node_modules/ },
     ]
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [HtmlWebpackPluginConfig, HtmlWebpackPluginConfig1]
 };
