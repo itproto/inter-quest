@@ -156,3 +156,83 @@ function stockStrategy(arr) {
 test('Task 5. Stock strategy', () => {
     console.info(stockStrategy([100, 180, 260, 310, 40, 535, 695]));
 });
+
+
+/*
+Given an unsorted array of non-negative integers, 
+find a continuous sub-array which adds to a given number.
+
+[12, 3, 5, 10, 22, 11, 25] x=37
+
+Idea:
+- 2 cursors
+- start from cur1=0 (>x next || ==x return) 
+- start cur2 until arr[cur1] + arr[cur2] ==(SUCC) or > x (prev step)
+*/
+function getSubarrayThatAddsTo(x, src) {
+    const arr = src.concat([]);
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > x) {
+            continue;
+        }
+        if (arr[i] === x) {
+            return [arr[i]];
+        }
+        let sum = arr[i];
+        for (let j = i + 1; j < arr.length; j++) {
+            sum += arr[j];
+            if (sum > x) {
+                break;
+            }
+            if (sum === x) {
+                return arr.slice(i, j + 1);
+            }
+        }
+    }
+    return [];
+}
+test('Task 6. Subarr that adds', () => {
+    const arr = [12, 3, 5, 10, 22, 11, 25];
+    console.info(getSubarrayThatAddsTo(18, arr));
+});
+
+/*
+Key Pair
+
+Given an array A[] of n numbers and another number x, 
+determine whether or not there exist two elements in A whose sum is exactly x.
+16
+1 4 45 6 10 8
+10
+1 2 4 3 6
+
+1.Idea:
+Brute-force: n2
+Too easy
+2. 
+a. sort array
+b. find highest > x (lookup back, binary search)
+c. start from i=0 until arr[i] + arr[j] >= x
+d. start from j again
+*/
+function hasKeyPair(src, x) {
+    const arr = src.concat([]);
+    //a.NlogN
+    arr.sort();
+    //b. find highest
+    let j = findHighestInSorted(arr, x);
+    //TOD: Finish it
+
+}
+
+//TODO: Implement it
+function findHighestInSorted(arr, x) {
+    let mid = arr.length / 2;
+    //left should be <x, right >x
+}
+
+/*
+Next larger element
+Given an array A [] having distinct elements, the task is to find the next greater element for each element of the array in order of their appearance in the array.
+If no such element exists, output -1 
+*/
